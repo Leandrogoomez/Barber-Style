@@ -1,0 +1,126 @@
+<link rel="stylesheet" href="style.css">
+
+<div class="app-container">
+  <!-- CABEÇALHO -->
+  <header class="app-header">
+    <div class="brand">
+      <div class="logo-box">💈</div>
+      <div>
+        <h1>Barber & Style</h1>
+        <p class="subtitle">Agendamento via WhatsApp</p>
+      </div>
+    </div>
+    <button id="toggle-view-btn" class="btn-mode">Ver Agenda ✂️</button>
+  </header>
+
+  <!-- VISÃO DO CLIENTE (AGENDAMENTO) -->
+  <main id="client-view" class="view-section active">
+    
+    <!-- PASSO 1: SERVIÇOS -->
+    <section class="step-card">
+      <h3>1. Escolha o Serviço</h3>
+      <div class="services-grid">
+        <div class="service-card active" data-service="Cabelo & Barba" data-price="70">
+          <div class="service-info">
+            <strong>Cabelo + Barba</strong>
+            <span>Corte completo + barba com toalha quente</span>
+          </div>
+          <span class="price">R$ 70</span>
+        </div>
+
+        <div class="service-card" data-service="Corte de Cabelo" data-price="45">
+          <div class="service-info">
+            <strong>Corte de Cabelo</strong>
+            <span>Degradê, tesoura ou máquina</span>
+          </div>
+          <span class="price">R$ 45</span>
+        </div>
+
+        <div class="service-card" data-service="Barba Completa" data-price="35">
+          <div class="service-info">
+            <strong>Barba Completa</strong>
+            <span>Modelagem e hidratação</span>
+          </div>
+          <span class="price">R$ 35</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PASSO 2: PROFISSIONAL -->
+    <section class="step-card">
+      <h3>2. Escolha o Profissional</h3>
+      <div class="barbers-grid">
+        <div class="barber-card active" data-barber="Carlos">
+          <div class="barber-avatar">👨‍🦱</div>
+          <strong>Carlos</strong>
+        </div>
+        <div class="barber-card" data-barber="Mateus">
+          <div class="barber-avatar">🧔</div>
+          <strong>Mateus</strong>
+        </div>
+        <div class="barber-card" data-barber="Qualquer Profissional">
+          <div class="barber-avatar">💈</div>
+          <strong>Qualquer</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- PASSO 3: DATA E HORÁRIO -->
+    <section class="step-card">
+      <h3>3. Data e Horário</h3>
+      <div class="date-picker-box">
+        <label for="booking-date">Data:</label>
+        <input type="date" id="booking-date">
+      </div>
+
+      <div class="time-slots">
+        <button class="time-btn" data-time="09:00">09:00</button>
+        <button class="time-btn" data-time="10:00">10:00</button>
+        <button class="time-btn active" data-time="11:00">11:00</button>
+        <button class="time-btn" data-time="14:00">14:00</button>
+        <button class="time-btn" data-time="15:30">15:30</button>
+        <button class="time-btn" data-time="17:00">17:00</button>
+        <button class="time-btn" data-time="18:00">18:00</button>
+      </div>
+    </section>
+
+    <!-- PASSO 4: DADOS DO CLIENTE -->
+    <section class="step-card">
+      <h3>4. Seus Dados</h3>
+      <div class="input-group">
+        <label>Seu Nome Completo</label>
+        <input type="text" id="client-name" placeholder="Ex: Leandro Silva" required>
+      </div>
+    </section>
+
+    <!-- RESUMO E AÇÃO DO WHATSAPP -->
+    <section class="summary-box">
+      <div class="summary-details">
+        <p><strong>Serviço:</strong> <span id="summary-service">Cabelo + Barba</span></p>
+        <p><strong>Barbeiro:</strong> <span id="summary-barber">Carlos</span></p>
+        <p><strong>Data/Hora:</strong> <span id="summary-datetime">--/-- às --:--</span></p>
+        <p class="total-price">Total: <span id="summary-price">R$ 70,00</span></p>
+      </div>
+      
+      <button id="btn-confirm-booking" class="btn-primary">
+        <span>Agendar pelo WhatsApp</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.508 1.045 3.522l-.689 2.516 2.579-.676c.983.536 2.109.844 3.308.844 3.18 0 5.767-2.587 5.767-5.766.001-3.18-2.585-5.766-5.766-5.766zm9.969 5.766c0 5.523-4.477 10-10 10-1.77 0-3.434-.46-4.882-1.266l-5.118 1.34 1.365-4.987c-.917-1.498-1.444-3.256-1.444-5.138 0-5.523 4.477-10 10-10s10 4.477 10 10z"/></svg>
+      </button>
+    </section>
+
+  </main>
+
+  <!-- VISÃO DO ESTABELECIMENTO (AGENDA) -->
+  <main id="barber-view" class="view-section">
+    <div class="section-title">
+      <h2>Solicitações Recentes 📅</h2>
+      <p>Histórico de agendamentos gerados</p>
+    </div>
+
+    <div class="agenda-list" id="agenda-list">
+      <!-- Inserido dinamicamente -->
+    </div>
+  </main>
+</div>
+
+<script src="script.js"></script>
